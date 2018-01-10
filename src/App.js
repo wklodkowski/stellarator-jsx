@@ -4,6 +4,7 @@ import Text from './components/Text';
 import Notification from './components/Notification';
 import Input from './components/Input';
 import LoginForm from './components/LoginForm';
+import Form from './components/Form';
 
 function handleButtonClick() {
 	alert('button clicked');
@@ -94,7 +95,7 @@ class App extends Component {
 					Props:
 						config (array of objects) - required
 				*/}
-
+				<Form />
 
 			</div>
 		);
