@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
 
 function Notification({ children, type }) {
 	return (

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css'
 
-function Text({children, size, heading}){
+function Text({children, size, isHeading}){
 
-    if(heading)
+    if(isHeading)
     {
         return(
             <h1 className={`${size}`}>
@@ -14,20 +14,20 @@ function Text({children, size, heading}){
     }
 
     return(
-        <h3 className={`${size}`}>
+        <span className={`${size}`}>
         {children}
-        </h3>
+        </span>
     );
 }
 
 Text.propTypes = {
-    size: PropTypes.string,
-    heading: PropTypes.bool
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    isHeading: PropTypes.bool
 };
 
 Text.defaultProps = {
     size: 'medium',
-    heading: false
+    isHeading: false
 };
 
 export default Text;

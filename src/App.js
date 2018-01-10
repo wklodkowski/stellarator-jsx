@@ -2,8 +2,14 @@ import React, {Component} from 'react';
 import Button from './components/Button';
 import Text from './components/Text';
 import Notification from './components/Notification';
+import Input from './components/Input';
+import LoginForm from './components/LoginForm';
 
 function handleButtonClick() {
+	alert('button clicked');
+}
+
+function handleInputChange(event){
 	alert('button clicked');
 }
 
@@ -31,7 +37,7 @@ class App extends Component {
 						heading (possible values: true / false - default)
 						size (possible values: small / medium - default / large)
 				*/}
-				<Text size="large" heading={true}>Hello Text</Text>
+				<Text size="large" isHeading={true}>Hello Text</Text>
 
 
 				{/*
@@ -42,7 +48,7 @@ class App extends Component {
 						type (possible values: success / danger / info - default)
 				*/}
 
-				<Notification type="danger"></Notification>
+				<Notification type="danger">Hello</Notification>			
 
 				{/*
 					Component:
@@ -58,7 +64,14 @@ class App extends Component {
 						error (string)
 						onInputChange (function)
 				*/}
-
+				<Input type="email" 
+				name="Email" 
+				placeholder="Enter email" 
+				label="test"
+				value="Hello"
+				size="large"
+				error="bigError" 
+				onInputChange={handleInputChange(this)}/>
 
 				{/*
 					Component:
@@ -72,7 +85,7 @@ class App extends Component {
 						Login and password should be printed in the console on submit button click
 				*/}
 
-
+				<LoginForm />
 
 				{/*
 					Component:
