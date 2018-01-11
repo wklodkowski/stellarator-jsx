@@ -2,15 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Input({ children, type, name, placeholder, label, value, size, error, onInputChange }) {
-	return (
-        <input type={type} 
-        name={name} 
-        label={label} 
-        value={value} 
-        size={size} 
-        onError={error} 
-        onChange={onInputChange}/>
-	);
+    return (
+        <div className="form-group">
+            <label for={name}>{label}</label>
+            <input type={type}
+                name={name}
+                value={value}
+                size={size}
+                className="form-control"
+                placeholder={placeholder}
+                 />
+        </div>
+
+    );
 }
 
 Input.propTypes = {

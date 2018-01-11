@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Notification({ children, type }) {
 	return (
 		<div className={`alert alert-${type}`}>
-            <strong>{children}</strong> {/*Rest of text */}
+            <strong>{children}</strong>
         </div>
 	);
 }

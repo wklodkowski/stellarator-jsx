@@ -10,8 +10,8 @@ function handleButtonClick() {
 	alert('button clicked');
 }
 
-function handleInputChange(event){
-	alert('button clicked');
+function handleInputChange(){
+	
 }
 
 class App extends Component {
@@ -65,14 +65,17 @@ class App extends Component {
 						error (string)
 						onInputChange (function)
 				*/}
-				<Input type="email" 
-				name="Email" 
-				placeholder="Enter email" 
-				label="test"
-				value="Hello"
-				size="large"
-				error="bigError" 
-				onInputChange={handleInputChange(this)}/>
+				<form>
+					<Input type="email"
+						name="Email"
+						placeholder="Enter email"
+						label="test"
+						value="Hello"
+						size="large"
+						error="error"
+						onInputChange={handleInputChange()} />
+				</form>
+				
 
 				{/*
 					Component:
