@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Button from './components/Button';
 import Text from './components/Text';
 import Notification from './components/Notification';
 import Input from './components/Input';
 import LoginForm from './components/LoginForm';
 import Form from './components/Form';
+import FormConfig from './config/form.js';
 
 function handleButtonClick() {
 	alert('button clicked');
 }
 
-function handleInputChange(){
-	
+function handleInputChange(event) {
 }
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
 						loading (possible values: true / false)
 						onButtonClick (function)
 				*/}
-				<Button onButtonClick={handleButtonClick}>Hello</Button>
+				<Button onButtonClick={handleButtonClick} classType="primary">Hello</Button>
 
 
 				{/*
@@ -38,7 +38,7 @@ class App extends Component {
 						heading (possible values: true / false - default)
 						size (possible values: small / medium - default / large)
 				*/}
-				<Text size="large" isHeading={true}>Hello Text</Text>
+				<Text size="large" isHeading>Hello Text</Text>
 
 
 				{/*
@@ -49,7 +49,7 @@ class App extends Component {
 						type (possible values: success / danger / info - default)
 				*/}
 
-				<Notification type="danger">Hello</Notification>			
+				<Notification type="danger">Hello</Notification>
 
 				{/*
 					Component:
@@ -69,13 +69,11 @@ class App extends Component {
 					<Input type="email"
 						name="Email"
 						placeholder="Enter email"
-						label="test"
-						value="Hello"
+						label="Input"
 						size="large"
-						error="error"
-						onInputChange={handleInputChange()} />
+						onInputChange={handleInputChange} />
 				</form>
-				
+
 
 				{/*
 					Component:
@@ -98,7 +96,7 @@ class App extends Component {
 					Props:
 						config (array of objects) - required
 				*/}
-				<Form />
+				<Form config={FormConfig} />
 
 			</div>
 		);

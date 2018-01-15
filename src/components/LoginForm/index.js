@@ -3,22 +3,24 @@ import PropTypes, { string } from 'prop-types';
 import Input from './../Input';
 import Button from './../Button';
 
-var textInput = {
-    login: string,
-    password: string
-};
-
-function handleButtonClick() {
-    console.log(textInput.login);
-    console.log(textInput.password);
-}
-
 function LoginForm({ children }) {
+
+    let loginFormData = {};
+
+    function handleLoginData(event) {
+        loginFormData[event.target.name] = event.target.value;
+    }
+
+    function submit(e) {
+        e.preventDefault();
+        console.log(loginFormData);
+    }
+
     return (
         <form>
-            <Input ref={input => { textInput.login = input; }} type="email" label="Login" size="medium"/>
-            <Input ref={input => { textInput.password = input; }} type="password" label="Password"/>
-            <Button onButtonClick={handleButtonClick}>Submit</Button>
+            <Input name="login" type="email" label="Login" size="medium" onInputChange={handleLoginData} />
+            <Input name="password" type="password" label="Password" size="medium" onInputChange={handleLoginData} />
+            <Button type="submit" classType="primary" loading={false} onButtonClick={submit}>Submit</Button>
         </form>
     );
 }

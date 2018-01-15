@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-function Button({ children, type, disabled, loading, onButtonClick }) {
+function Button({ children, type, disabled, loading, classType, onButtonClick }) {
 	return (
 		<button
-			className={`btn btn-${type}`}
-			disabled={disabled || loading}
-			onClick={onButtonClick}
-		>
+			type={type}
+			className={`btn btn-${classType}`}
+			onClick={onButtonClick}>
 			{loading ? 'Loading...' : children}
 		</button>
 	);
@@ -18,11 +17,12 @@ Button.propTypes = {
 	type: PropTypes.string,
 	disabled: PropTypes.bool,
 	loading: PropTypes.bool,
+	classType: PropTypes.string,
 	onButtonClick: PropTypes.func
 };
 
 Button.defaultProps = {
-	type: 'primary'
+	type: 'submit'
 };
 
 export default Button;

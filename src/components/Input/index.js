@@ -2,18 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Input({ children, type, name, placeholder, label, value, size, error, onInputChange }) {
+
+    let validClass = error ? 'is-invalid' : '';
+
     return (
         <div className="form-group">
-            <label for={name}>{label}</label>
-            <input type={type}
-                name={name}
-                value={value}
-                size={size}
-                className="form-control"
-                placeholder={placeholder}
-                 />
-        </div>
+            <label htmlFor={name}>{label}</label>
+            {type !== 'textarea' ? (
 
+                <input type={type}
+                    name={name}
+                    defaultValue={value}
+                    size={size}
+                    className={`form-control ${validClass}`}
+                    placeholder={placeholder}
+                />
+            ) : (<textarea
+                name={name}
+                defaultValue={value}
+                size={size}
+                className={`form-control ${validClass}`}
+                placeholder={placeholder}>
+
+            </textarea>)}
+            {error && (<div className="invalid-feedback">{error}</div>)}
+        </div>
     );
 }
 
@@ -29,7 +42,8 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-	type: 'text'
+    type: 'text',
+    value: ''
 };
 
 export default Input;

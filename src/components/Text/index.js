@@ -2,22 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css'
 
-function Text({children, size, isHeading}){
-
-    if(isHeading)
-    {
-        return(
-            <h1 className={`${size}`}>
-            {children}
-            </h1>
-        );
-    }
-
-    return(
-        <span className={`${size}`}>
-        {children}
-        </span>
-    );
+function Text({ children, size, isHeading }) {
+    return (<span>
+        {
+            isHeading ? (
+                <h1 className={`${size}`}>{children}</h1>
+            ) : (
+                    <p className={`${size}`}>{children}</p>
+                )
+        }
+    </span>);
 }
 
 Text.propTypes = {
